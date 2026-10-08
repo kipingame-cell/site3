@@ -78,7 +78,7 @@ export async function buildSingleSections(m) {
       [dollar, 'Точка «под долларом» — материальный потенциал'],
       [balance, 'Центр линии благополучия'],
     ])],
-    ['relations', 'Отношения', programBanner(progRelations, pk.relations) + `<p class="hint">Канал отношений: <b>${pk.relations.replace(/-/g, ' — ')}</b> (вход в канал → «под сердцем», образ идеального партнёра → программа близости)</p>` + await zoneCards('relations', [
+    ['relations', 'Отношения', programBanner(progRelations, pk.relations) + `<p class="hint">Канал отношений: <b>${pk.relations.replace(/-/g, ' — ')}</b> (вход в канал → «под сердцем» → центр канала)</p>` + await zoneCards('relations', [
       [ax.bottom.inner, 'Вход в канал отношений'],
       [heart, '«Под сердцем» — идеальный партнёр'],
       [ax.bottom.mid, 'Программа близости'],
