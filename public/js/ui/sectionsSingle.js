@@ -39,7 +39,7 @@ export async function buildSingleSections(m) {
 
   const tailHTML = `
     ${programBanner(progTail, pk.tail)}
-    ${tailProg ? `<div class="program-banner"><b>${tailProg.title}</b><p>${tailProg.text}</p></div>` : ''}
+    ${!progTail && tailProg ? `<div class="program-banner"><b>${tailProg.title}</b><p>${tailProg.text}</p></div>` : ''}
     <p class="hint">Триада хвоста читается от центра вниз: <b>${pk.tail.replace(/-/g, ' — ')}</b> (вход — опыт прошлого → усиление-привычка → главный урок)</p>
     ${await zoneCards('tail', [
       [ax.bottom.inner, 'Вход в хвост — опыт прошлого'],
@@ -62,10 +62,10 @@ export async function buildSingleSections(m) {
       [ax.left.inner, 'Эмоции — сердечная чакра'],
       [ax.left.mid, 'Талант от Бога'],
     ])],
-    ['talents', 'Таланты', programBanner(progTalents, pk.talents) + `<p class="hint">Триада талантов читается от большого кружка: <b>${pk.talents.replace(/-/g, ' — ')}</b> (духовный талант → интеллект → самовыражение)</p>` + await zoneCards('talents', [
-      [p.month, 'Духовный талант — месяц, Ангел-хранитель'],
-      [ax.top.mid, 'Талант интеллекта и типа мышления'],
-      [ax.top.inner, 'Талант самовыражения и коммуникации'],
+    ['talents', 'Таланты', `<p class="hint">Личный талант: <b>${ax.top.inner}</b> (месяц + центр). Верхняя линия: <b>${pk.talents.replace(/-/g, ' — ')}</b>.</p>` + await zoneCards('talents', [
+      [ax.top.inner, 'Личный талант — самовыражение'],
+      [ax.top.mid, 'Интеллект и способ мышления'],
+      [p.month, 'Духовная энергия — месяц рождения'],
     ])],
     ['destiny', 'Задача души', centerDeepHTML(m) + await zoneCards('destiny', [
       [p.center, 'Центр — зона комфорта, душа'],
