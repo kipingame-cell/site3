@@ -1,0 +1,148 @@
+{
+  "date": "2026-10-08",
+  "source_repository": "kipingame-cell/site2",
+  "source_commit": "1cf575ef9fa7bb884722b5adcfb471e883343010",
+  "target_repository": "kipingame-cell/site3",
+  "restoration_commit": "2b35b32674a467e588d1dc4b42d1a91fdb69c849",
+  "content_changes": false,
+  "verified_files": 26,
+  "ci": {
+    "run_id": 37787468501,
+    "conclusion": "success",
+    "tests": 23,
+    "pass": 23,
+    "fail": 0
+  },
+  "files": [
+    {
+      "path": "public/db/compat/health/compat-Ajna.js",
+      "sha": "f46a74089ccb38d98664d41ce43e1c8a1cd32b4d",
+      "size": 72952
+    },
+    {
+      "path": "public/db/compat/health/compat-Anahata.js",
+      "sha": "8887b2365f6dfd41551a693e57ad27c01de08135",
+      "size": 63907
+    },
+    {
+      "path": "public/db/compat/health/compat-Manipura.js",
+      "sha": "b7d5fde74f6ee9dbbf9a4c0539d1a98adab83e76",
+      "size": 69132
+    },
+    {
+      "path": "public/db/compat/health/compat-Sahasrara.js",
+      "sha": "d8991f299f42e74d07444e8cf7904db8ac75e680",
+      "size": 62662
+    },
+    {
+      "path": "public/db/compat/health/compat-Svadhisthana.js",
+      "sha": "d2884f6f06d0e3a30ad6f8a74e3b51a5eff35e49",
+      "size": 72970
+    },
+    {
+      "path": "public/db/compat/health/compat-Vishudha.js",
+      "sha": "611033f1ece8111e1a18a9c114bc273a4554e148",
+      "size": 62489
+    },
+    {
+      "path": "public/db/lichn/arcanas/mother.js",
+      "sha": "7f32bafbc3517b94b7df763a682a24f0aec7e20d",
+      "size": 68580
+    },
+    {
+      "path": "public/db/lichn/arcanas/purpose_pers.js",
+      "sha": "ecdc54dee4f5596dbef94623fa23c611665d8417",
+      "size": 63953
+    },
+    {
+      "path": "public/db/lichn/arcanas/purpose_soc.js",
+      "sha": "437f1b595fbba30771f467e41d5de9e8590c6237",
+      "size": 58348
+    },
+    {
+      "path": "public/db/lichn/arcanas/relations.js",
+      "sha": "a1f6bcbc6f60c56a203b097f822b2c17f6917f59",
+      "size": 57818
+    },
+    {
+      "path": "public/db/lichn/arcanas/tail.js",
+      "sha": "6f6c222c7479ca2a1f5a680494d13d3e65843238",
+      "size": 62263
+    },
+    {
+      "path": "public/db/lichn/health/lichn-Ajna.js",
+      "sha": "dcf9edbb7fb6dc2e1009a3a725ba42d46ca6995d",
+      "size": 59738
+    },
+    {
+      "path": "public/db/lichn/health/lichn-Anahata.js",
+      "sha": "65f5b6ff9c07a4779ca1d9a68a7f998238c06e10",
+      "size": 57766
+    },
+    {
+      "path": "public/db/lichn/health/lichn-Manipura.js",
+      "sha": "be26b43a5ed9b615f18cfc79123a17e4c18faea1",
+      "size": 57680
+    },
+    {
+      "path": "public/db/lichn/health/lichn-Muladhara.js",
+      "sha": "ca7eaad15b537198a202066da725698ddef45f02",
+      "size": 59897
+    },
+    {
+      "path": "public/db/lichn/health/lichn-Sahasrara.js",
+      "sha": "4e047b07144e7527feafca433c272af4438fffd2",
+      "size": 60122
+    },
+    {
+      "path": "public/db/lichn/health/lichn-Svadhisthana.js",
+      "sha": "b542a704ec986ec262a1641fe674127d13d5a484",
+      "size": 59237
+    },
+    {
+      "path": "public/db/programs/destiny.js",
+      "sha": "6339afe20848b730455c773246e4f6a4fc6c9d64",
+      "size": 653051
+    },
+    {
+      "path": "public/db/programs/father.js",
+      "sha": "2b14c07b9195ebb5496593f47465fb8f1d43d01d",
+      "size": 658477
+    },
+    {
+      "path": "public/db/programs/money.js",
+      "sha": "962942ce9ee09d4ecf80e53ba6eaae7c344300fe",
+      "size": 938697
+    },
+    {
+      "path": "public/db/programs/mother.js",
+      "sha": "a31a753d1ff00b025fd0ac392f999ef72b15053b",
+      "size": 836781
+    },
+    {
+      "path": "public/db/programs/purpose_pers.js",
+      "sha": "0a2ecf4227d86f39d6c03259525034ef6adc29a6",
+      "size": 930072
+    },
+    {
+      "path": "public/db/programs/purpose_soc.js",
+      "sha": "a5a294b3ea94cfd54d567420b73fde691eb6c74c",
+      "size": 819635
+    },
+    {
+      "path": "public/db/programs/relations.js",
+      "sha": "9b5492b1044d3e55acbdf4da3401aabae4ca76d0",
+      "size": 936155
+    },
+    {
+      "path": "public/db/programs/tail.js",
+      "sha": "b3c47361d7cb27dba9819dbc392fa771e3a790b2",
+      "size": 737801
+    },
+    {
+      "path": "public/db/programs/talents.js",
+      "sha": "f5639809a83c4dbc47ebe17fcf26fba41df09eb1",
+      "size": 980733
+    }
+  ]
+}
