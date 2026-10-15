@@ -1,0 +1,86 @@
+{
+  "repo": "site3",
+  "source_commit": "1c757e5670bc5fa932bfd38c790bc056208af999",
+  "source_tree": "22bf0c4fdc1d89315d2c78910f05774d35420572",
+  "date": "2026-10-15",
+  "structure": {
+    "repo": "site3",
+    "blobs": 116,
+    "bytes": 9887234,
+    "workflow_files": [
+      ".github/workflows/project-checks.yml"
+    ],
+    "lockfiles": [
+      "package-lock.json"
+    ],
+    "licenses": [],
+    "readme_broken_links": []
+  },
+  "releases_first_10": [],
+  "runs_latest_5": [
+    {
+      "id": 37787719067,
+      "name": "Matrix calculation checks",
+      "head_sha": "bd589212a3d6fa03e4870b14ac4caea01f864574",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37787468501,
+      "name": "Matrix calculation checks",
+      "head_sha": "2b35b32674a467e588d1dc4b42d1a91fdb69c849",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37761288748,
+      "name": "Matrix calculation checks",
+      "head_sha": "e10d81dbdcc1bae43402adb323d07ac2e3756fab",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37759109256,
+      "name": "Matrix calculation checks",
+      "head_sha": "6aa1dd356f8a0edc598a08541c5d727d2edc0285",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 37756746644,
+      "name": "Matrix calculation checks",
+      "head_sha": "fab079cc4d28b11b73ac15c9e0b9cdb9dc261c2a",
+      "status": "completed",
+      "conclusion": "failure"
+    }
+  ],
+  "apk": {
+    "repo": "site3",
+    "status": "no published release in first 10"
+  },
+  "findings": [
+    {
+      "id": "MATRIX-R2-01",
+      "priority": "P1",
+      "title": "Ошибку записи скрывает сообщение об успешном сохранении",
+      "file": "public/js/ui/store.js",
+      "line": 5,
+      "proof": "В Node VM реальному store.set подставлено localStorage.setItem, бросающее QuotaExceededError. Исключение подавлено, вызывающий код не получает статус ошибки. В savedWrite → renderSavedSlide → toast сообщение «сохранено» выполняется без проверки результата.",
+      "impact": "При заполненном/запрещённом хранилище пользователь считает расчёт сохранённым, но после ухода со страницы его нет.",
+      "fix": "Возвращать результат записи либо передавать исключение; показывать успех только после подтверждения, при отказе предлагать экспорт.",
+      "acceptance": "При QuotaExceededError нет ложного сообщения об успехе и прежние записи сохранены; обычная запись переживает reload."
+    }
+  ],
+  "reproductions": [
+    {
+      "repo": "site3",
+      "id": "MATRIX-R2-01",
+      "evidence": {
+        "storageWriteThrows": true,
+        "storeSetThrows": false,
+        "returns": "undefined",
+        "uiCode": "savedWrite(); renderSavedSlide(); toast(saved)"
+      }
+    }
+  ]
+}
