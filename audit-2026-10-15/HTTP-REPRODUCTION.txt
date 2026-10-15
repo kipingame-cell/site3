@@ -1,0 +1,2 @@
+GET /..%2fpublic-audit-probe%2fproof.txt -> HTTP 200: AUDIT_SENTINEL_NO_PRIVATE_DATA
+Локальный тест с искусственным sentinel; чужие файлы не читались.
