@@ -2,7 +2,8 @@
 
 export const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
-  set(k, v) { try { localStorage.setItem(k, v); } catch { /* приватный режим — просто не запоминаем */ } },
+  set(k, v) { try { localStorage.setItem(k, v); return true; } catch { return false; } },
 };
 
 export const dateKey = (mode) => (mode === 'compat' ? 'dm_d1_compat' : 'dm_d1_single');
+

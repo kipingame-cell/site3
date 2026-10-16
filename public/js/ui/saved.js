@@ -7,7 +7,7 @@ function savedList() {
   try { return JSON.parse(store.get('dm_saved') || '[]'); } catch { return []; }
 }
 function savedWrite(list) {
-  store.set('dm_saved', JSON.stringify(list.slice(0, 20)));
+  return store.set('dm_saved', JSON.stringify(list.slice(0, 20)));
 }
 
 /**
@@ -48,7 +48,7 @@ export function renderSavedSlide(ctx) {
     const cur = ctx.getMode();
     const list = savedList().filter((e) => !(e.mode === cur && e.d1 === d1 && e.d2 === d2));
     list.unshift({ label, mode: cur, d1, d2, ts: Date.now() });
-    savedWrite(list);
+    if (!savedWrite(list)) { toast('Не удалось сохранить изменения. Проверьте доступ и свободное место в хранилище браузера.'); return; }
     renderSavedSlide(ctx);
     toast(`«${label}» сохранено в Мои матрицы`);
   });
@@ -65,7 +65,8 @@ export function renderSavedSlide(ctx) {
   slide.querySelectorAll('.saved-del').forEach((b) => b.addEventListener('click', () => {
     const list = savedList();
     list.splice(Number(b.dataset.i), 1);
-    savedWrite(list);
+    if (!savedWrite(list)) { toast('Не удалось сохранить изменения. Проверьте доступ и свободное место в хранилище браузера.'); return; }
     renderSavedSlide(ctx);
   }));
 }
+
