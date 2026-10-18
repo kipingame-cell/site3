@@ -1,2 +1,9 @@
 node_modules/
 # touch: retrigger Pages deploy 2026-08-06
+
+# Android generated output and private signing material
+android/build/
+android/dist/
+android/signing/
+android/__pycache__/
+android/vendor-cache/
