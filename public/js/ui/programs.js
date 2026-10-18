@@ -7,6 +7,7 @@ export function programBanner(prog, key) {
   return `<div class="program-banner">
     <b>${prog.title} <span class="prog-codes">${key.replace(/-/g, ' · ')}</span></b>
     ${plainTriad(key)}
+    ${prog.interpretationSource === 'project' ? '<p class="hint">Трактовка базы проекта</p>' : ''}
     ${prog.text ? `<p>${prog.text}</p>` : ''}
     ${prog.advice ? `<p class="prog-advice"><b>Совет:</b> ${prog.advice}</p>` : ''}
   </div>`;

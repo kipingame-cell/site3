@@ -1,6 +1,6 @@
 /* ================= Личные секции: визитка, синтез, центр, прозрачность расчёта ================= */
 import { ARCANA } from '../data/arcana.js';
-import * as db from '../db.js';
+import * as db from '../db.js?v=20261018';
 import { block } from './cards.js';
 
 /** Сводная карта каналов матрицы: [[значение, название канала], ...] */
@@ -53,8 +53,10 @@ export function calcTransparencyHTML(m) {
       <li><b>${p.diagonal.rightTop}</b> — род матери (дух): ${p.month} + ${p.year}</li>
       <li><b>${p.diagonal.rightBottom}</b> — род отца (материя): ${p.year} + ${p.tail}</li>
       <li><b>${p.diagonal.leftBottom}</b> — род матери (материя): ${p.tail} + ${p.day}</li>
+      <li><b>${p.rodCenter}</b> — родовой центр: ${p.diagonal.leftTop} + ${p.diagonal.rightTop} + ${p.diagonal.rightBottom} + ${p.diagonal.leftBottom}</li>
+      <li><b>${p.strengthCenter}</b> — общий центр силы: ${p.center} + ${p.rodCenter}</li>
     </ul>
-    <p class="prog-advice">Все остальные точки — промежуточные суммы на лучах между этими углами и центром. Никакой магии в вычислениях: только сложение и сведение к 22 арканам.</p>
+    <p class="prog-advice">Личные лучи рассчитываются через личный центр, родовые — через родовой центр. Никакой магии в вычислениях: только сложение и сведение к 22 арканам.</p>
   </div>`;
 }
 

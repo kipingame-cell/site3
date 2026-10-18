@@ -1,10 +1,10 @@
 /* ================= Секции совместимости ================= */
-import { reduceArcana, programKeys } from '../core/matrixCore.js?v=14';
+import { reduceArcana, programKeys } from '../core/matrixCore.js?v=15';
 import { findKarmicTail } from '../data/arcana.js';
-import * as db from '../db.js';
+import * as db from '../db.js?v=20261018';
 import { compatBlockCard } from './cards.js';
 import { healthAccordion } from './health.js';
-import { plainTriad } from './programs.js';
+import { plainTriad } from './programs.js?v=20261018';
 import { exitPlusCompatHTML } from './exitPlus.js';
 
 /** Полоски совместимости в процентах (как в тиктоке): каждая сфера считается

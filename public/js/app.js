@@ -1,15 +1,15 @@
 /* ================= Матрица Судьбы — тонкий entry: bootstrap + wiring =================
    Вся разметка разбора собирается в модулях ./ui/*, расчёты — в ./core/matrixCore.js,
    этот файл только связывает DOM, барабаны дат, события и рендер-пайплайн. */
-import { calcMatrix, calcCompat } from './core/matrixCore.js?v=14';
-import * as db from './db.js';
+import { calcMatrix, calcCompat } from './core/matrixCore.js?v=15';
+import * as db from './db.js?v=20261018';
 import { createDrums } from './drums.js?v=14';
-import { ensurePdfFonts, buildPdfDef } from './pdfExport.js?v=4';
+import { ensurePdfFonts, buildPdfDef } from './pdfExport.js?v=5';
 import { shareMatrixCard } from './shareCard.js?v=4';
 import { $, els, showError, toast } from './ui/dom.js';
 import { store, dateKey } from './ui/store.js';
 import { attachPointTip } from './ui/tip.js';
-import { renderAll } from './ui/render.js';
+import { renderAll } from './ui/render.js?v=20261018';
 
 let mode = 'single';
 let lastResult = null;

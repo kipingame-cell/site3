@@ -1,5 +1,5 @@
 /* ================= «Выход в плюс» — вся матрица одним текстом ================= */
-import { reduceArcana, programKeys } from '../core/matrixCore.js?v=14';
+import { reduceArcana, programKeys } from '../core/matrixCore.js?v=15';
 import { ARCANA } from '../data/arcana.js';
 import { ARC_PROFILES } from '../../db/programsExtra.js?v=13';
 import { EXIT_PLUS } from '../exitPlusData.js?v=1';
