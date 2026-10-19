@@ -1,5 +1,5 @@
 /* ================= Баннеры комбинированных программ (триады) ================= */
-import { ARC_PROFILES } from '../../db/programsExtra.js?v=13';
+import { ARC_PROFILES } from '../../db/programsExtra.js?v=20261020';
 
 /** Баннер комбинированной программы (триада). */
 export function programBanner(prog, key) {

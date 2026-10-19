@@ -1,11 +1,11 @@
 /* ================= Личные секции разбора ================= */
-import { reduceArcana, yearForecast, programKeys } from '../core/matrixCore.js?v=15';
+import { reduceArcana, periodForecast, programKeys } from '../core/matrixCore.js?v=20261020';
 import { findKarmicTail } from '../data/arcana.js';
-import * as db from '../db.js?v=20261018';
+import * as db from '../db.js?v=20261020';
 import { zoneCards, skeleton } from './cards.js';
 import { healthAccordion } from './health.js';
-import { programBanner } from './programs.js?v=20261018';
-import { vizitkaHTML, synthesisHTML, centerDeepHTML } from './insights.js?v=20261018';
+import { programBanner } from './programs.js?v=20261020';
+import { vizitkaHTML, synthesisHTML, centerDeepHTML } from './insights.js?v=20261020';
 import { exitPlusSingleHTML } from './exitPlus.js';
 
 export async function buildSingleSections(m) {
@@ -47,11 +47,11 @@ export async function buildSingleSections(m) {
       [p.tail, 'Главный урок — нижняя точка'],
     ])}`;
 
-  const years = yearForecast(`${m.input.year}-${String(m.input.month).padStart(2, '0')}-${String(m.input.day).padStart(2, '0')}`, undefined, 10);
+  const years = periodForecast(`${m.input.year}-${String(m.input.month).padStart(2, '0')}-${String(m.input.day).padStart(2, '0')}`, undefined, 10);
   const forecastHTML = `
-    <p class="hint">Аркан на день рождения. Возраст между узлами оценивается приближённо с шагом 1,25 года; в течение года жизни энергия может меняться.</p>
+    <p class="hint">Аркан действует в указанном возрастном периоде: границы неравномерны и могут приходиться на середину года. Конечная дата относится уже к следующему периоду.</p>
     <div class="year-chips" id="yearChips">${years.map((f, i) => `
-      <button type="button" class="chip${i === 0 ? ' active' : ''}" data-year="${f.year}" data-age="${f.age}" data-energy="${f.energy}" data-start="${f.startsOn}">${f.startsOn} · ${f.energy}</button>`).join('')}
+      <button type="button" class="chip${i === 0 ? ' active' : ''}" data-year="${f.year}" data-age="${f.ageLabel}" data-energy="${f.energy}" data-start="${f.periodLabel}">${f.ageLabel} лет · ${f.energy}</button>`).join('')}
     </div>
     <div id="forecastCard">${years.length ? skeleton(1) : '<p class="hint">Возраст вне доступного круга 0–79 лет.</p>'}</div>`;
 

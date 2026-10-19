@@ -1,10 +1,10 @@
 /* ================= Рендер результата: схема, чакры, табы, прогноз ================= */
-import * as db from '../db.js?v=20261018';
-import { renderOctagram, LEGEND, ZONE_COLORS } from '../octagram.js?v=21';
+import * as db from '../db.js?v=20261020';
+import { renderOctagram, LEGEND, ZONE_COLORS } from '../octagram.js?v=20261020';
 import { $, els } from './dom.js';
 import { section, skeleton, entryCard } from './cards.js';
 import { CHAKRA_COLORS } from './health.js';
-import { buildSingleSections } from './sectionsSingle.js?v=20261018';
+import { buildSingleSections } from './sectionsSingle.js?v=20261020';
 import { buildCompatSections } from './sectionsCompat.js';
 import { renderSavedSlide } from './saved.js';
 
@@ -85,13 +85,13 @@ export async function renderAll(result, ctx) {
       const card = $('forecastCard');
       card.innerHTML = skeleton(1);
       const entry = await db.lichnZone('forecast', Number(btn.dataset.energy));
-      card.innerHTML = `<h3 class="forecast-title">На ${btn.dataset.start} (${btn.dataset.age} лет) — аркан ${btn.dataset.energy}</h3>` + entryCard(Number(btn.dataset.energy), entry, { open: true });
+      card.innerHTML = `<h3 class="forecast-title">${btn.dataset.start} (${btn.dataset.age} лет) — аркан ${btn.dataset.energy}</h3>` + entryCard(Number(btn.dataset.energy), entry, { open: true });
     });
     // сразу показать текущий год
     const first = chips.querySelector('.chip');
     if (first) {
       const entry = await db.lichnZone('forecast', Number(first.dataset.energy));
-      $('forecastCard').innerHTML = `<h3 class="forecast-title">На ${first.dataset.start} (${first.dataset.age} лет) — аркан ${first.dataset.energy}</h3>` + entryCard(Number(first.dataset.energy), entry, { open: true });
+      $('forecastCard').innerHTML = `<h3 class="forecast-title">${first.dataset.start} (${first.dataset.age} лет) — аркан ${first.dataset.energy}</h3>` + entryCard(Number(first.dataset.energy), entry, { open: true });
     }
   }
 }

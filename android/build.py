@@ -59,10 +59,12 @@ def main():
     card.write_text(card.read_text().replace('new URL(location.origin + location.pathname)',"new URL('https://kipingame-cell.github.io/site2/app.html')"))
     pdf=assets/'js/pdfExport.js'
     pdf.write_text(pdf.read_text().replace("https://kipingame-cell.github.io/site3/","https://kipingame-cell.github.io/site2/"))
-    (assets/'android-build.json').write_text(json.dumps({'version':'1.0.0','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'offline':True},indent=2))
+    (assets/'android-build.json').write_text(json.dumps({'version':'1.0.1','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'offline':True},indent=2))
     run([tools/'aapt2','compile','--dir',HERE/'res','-o',build/'resources.zip'])
     base=build/'unsigned.apk'
     run([tools/'aapt2','link','-I',jar,'--manifest',HERE/'AndroidManifest.xml','--min-sdk-version','26','--target-sdk-version','35','--auto-add-overlay','-R',build/'resources.zip','-A',build/'assets','--java',build/'gen','-o',base])
+    with zipfile.ZipFile(base) as check:
+        assert 'AndroidManifest.xml' in check.namelist(), 'aapt2 did not produce a valid APK'
     sources=list((HERE/'src').rglob('*.java'))+list((build/'gen').rglob('*.java'))
     run(['java','com.sun.tools.javac.Main','--release','8','-classpath',jar,'-encoding','UTF-8','-d',build/'classes',*sources])
     classes=list((build/'classes').rglob('*.class'))
@@ -74,11 +76,9 @@ def main():
     signing=args.signing_dir.resolve();signing.mkdir(mode=0o700,parents=True,exist_ok=True)
     key=signing/'matrix-release.keystore';password=signing/'password.txt'
     if not key.exists():
-        password.write_text(secrets.token_urlsafe(32));password.chmod(0o600)
-        run(['keytool','-genkeypair','-keystore',key,'-storetype','PKCS12','-storepass:file',password,'-keypass:file',password,'-alias','matrix-release','-keyalg','RSA','-keysize','3072','-validity','10000','-dname','CN=Kipin Matrix, O=Kipin, C=RU'])
-        key.chmod(0o600)
+        raise RuntimeError('Existing release signing key required; refusing incompatible key creation')
     out=HERE/'dist';out.mkdir(exist_ok=True)
-    apk=out/'Matrix-Sudby-1.0.0.apk'
+    apk=out/'Matrix-Sudby-1.0.1.apk'
     run([tools/'apksigner','sign','--ks',key,'--ks-key-alias','matrix-release','--ks-pass','file:'+str(password),'--out',apk,aligned])
     run([tools/'apksigner','verify','--verbose',apk])
     run([tools/'zipalign','-c','-p','4',apk])

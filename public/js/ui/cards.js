@@ -1,6 +1,6 @@
 /* ================= Карточки и типовые блоки разбора ================= */
 import { ARCANA } from '../data/arcana.js';
-import * as db from '../db.js?v=20261018';
+import * as db from '../db.js?v=20261020';
 
 export function block(label, cls, text) {
   if (!text) return '';
